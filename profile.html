@@ -1,183 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DevQuest — Profile</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevQuest — Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
 </head>
+
 <body class="app-body">
 
-  <div class="stars"></div>
-  <div class="stars2"></div>
+    <div class="stars"></div>
+    <div class="stars2"></div>
 
-  <!-- SIDEBAR -->
-  <aside class="dq-sidebar" id="sidebar">
-    <div class="sidebar-brand">
-      <span class="logo-icon">⚔️</span>
-      <span class="brand-text">Dev<span class="logo-accent">Quest</span></span>
-    </div>
-    <nav class="sidebar-nav">
-      <a href="/dashboard.html" class="nav-item"><i class="bi bi-grid-fill"></i><span>Dashboard</span></a>
-      <a href="/subjects.html"  class="nav-item"><i class="bi bi-map-fill"></i><span>Worlds</span></a>
-      <a href="/profile.html"   class="nav-item active"><i class="bi bi-person-fill"></i><span>Profile</span></a>
-      <a href="#" class="nav-item" data-action="logout" style="margin-top:auto">
-        <i class="bi bi-box-arrow-left"></i><span>Logout</span>
-      </a>
-    </nav>
-    <div class="sidebar-user">
-      <div class="user-avatar">H</div>
-      <div class="user-info">
-        <div class="user-name" id="sb-username">Hero</div>
-        <div class="user-level">Level <span id="sb-level">1</span></div>
-      </div>
-    </div>
-  </aside>
+    <!-- SIDEBAR -->
+    <aside class="dq-sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <span class="logo-icon">⚔️</span>
+            <span class="brand-text">Dev<span class="logo-accent">Quest</span></span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/dashboard.html" class="nav-item"><i class="bi bi-grid-fill"></i><span>Dashboard</span></a>
+            <a href="/subjects.html" class="nav-item"><i class="bi bi-map-fill"></i><span>Worlds</span></a>
+            <a href="/profile.html" class="nav-item active"><i class="bi bi-person-fill"></i><span>Profile</span></a>
+            <a href="#" class="nav-item" data-action="logout" style="margin-top:auto">
+                <i class="bi bi-box-arrow-left"></i><span>Logout</span>
+            </a>
+        </nav>
+        <div class="sidebar-user">
+            <div class="user-avatar">H</div>
+            <div class="user-info">
+                <div class="user-name" id="sb-username">Hero</div>
+                <div class="user-level">Level <span id="sb-level">1</span></div>
+            </div>
+        </div>
+    </aside>
 
-  <!-- MAIN -->
-  <main class="dq-main">
-    <header class="dq-topbar">
-      <div class="topbar-left">
-        <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
-        <h1 class="page-title">Profile</h1>
-      </div>
-      <div class="topbar-right d-flex align-items-center gap-3">
-        <div class="streak-pill"><i class="bi bi-fire"></i> <span id="streak-count">0</span> day streak</div>
-        <div class="xp-topbar"><i class="bi bi-star-fill text-warning"></i> <span id="topbar-xp">0</span> XP</div>
-      </div>
-    </header>
+    <!-- MAIN -->
+    <main class="dq-main">
+        <header class="dq-topbar">
+            <div class="topbar-left">
+                <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                <h1 class="page-title">Profile</h1>
+            </div>
+            <div class="topbar-right d-flex align-items-center gap-3">
+                <div class="streak-pill"><i class="bi bi-fire"></i> <span id="streak-count">0</span> day streak</div>
+                <div class="xp-topbar"><i class="bi bi-star-fill text-warning"></i> <span id="topbar-xp">0</span> XP</div>
+            </div>
+        </header>
 
-    <div class="dashboard-content p-4">
+        <div class="dashboard-content p-4">
 
-      <!-- PROFILE HERO -->
-      <div class="profile-hero mb-4">
-        <div class="profile-avatar-wrap">
-          <div class="profile-avatar-big" id="prof-avatar">H</div>
-          <div class="profile-level-ring">LVL <span id="prof-level">1</span></div>
-        </div>
-        <div class="profile-info">
-          <h2 class="profile-username" id="prof-username">Hero</h2>
-          <p class="profile-title" id="prof-title">Code Apprentice</p>
-          <div class="profile-xp-row">
-            <div class="xp-bar-track">
-              <div class="xp-bar-fill" id="prof-xp-bar" style="width:0%"></div>
-              <div class="xp-bar-glow" id="prof-xp-glow" style="width:0%"></div>
+            <!-- PROFILE HERO -->
+            <div class="profile-hero mb-4">
+                <div class="profile-avatar-wrap">
+                    <div class="profile-avatar-big" id="prof-avatar">H</div>
+                    <div class="profile-level-ring">LVL <span id="prof-level">1</span></div>
+                </div>
+                <div class="profile-info">
+                    <h2 class="profile-username" id="prof-username">Hero</h2>
+                    <p class="profile-title" id="prof-title">Code Apprentice</p>
+                    <div class="profile-xp-row">
+                        <div class="xp-bar-track">
+                            <div class="xp-bar-fill" id="prof-xp-bar" style="width:0%"></div>
+                            <div class="xp-bar-glow" id="prof-xp-glow" style="width:0%"></div>
+                        </div>
+                        <span class="xp-numbers ms-3"><span id="prof-xp">0</span> XP</span>
+                    </div>
+                </div>
             </div>
-            <span class="xp-numbers ms-3"><span id="prof-xp">0</span> XP</span>
-          </div>
-        </div>
-      </div>
 
-      <!-- STATS -->
-      <div class="row g-3 mb-4">
-        <div class="col-md-3 col-6">
-          <div class="stat-card">
-            <div class="stat-card-icon sc-purple"><i class="bi bi-lightning-fill"></i></div>
-            <div class="stat-card-info">
-              <div class="stat-card-val" id="p-stat-xp">0</div>
-              <div class="stat-card-label">Total XP</div>
+            <!-- STATS -->
+            <div class="row g-3 mb-4">
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <div class="stat-card-icon sc-purple"><i class="bi bi-lightning-fill"></i></div>
+                        <div class="stat-card-info">
+                            <div class="stat-card-val" id="p-stat-xp">0</div>
+                            <div class="stat-card-label">Total XP</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <div class="stat-card-icon sc-green"><i class="bi bi-check2-all"></i></div>
+                        <div class="stat-card-info">
+                            <div class="stat-card-val" id="p-stat-quests">0</div>
+                            <div class="stat-card-label">Quests Done</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <div class="stat-card-icon sc-orange"><i class="bi bi-fire"></i></div>
+                        <div class="stat-card-info">
+                            <div class="stat-card-val" id="p-stat-streak">0</div>
+                            <div class="stat-card-label">Day Streak</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <div class="stat-card-icon sc-blue"><i class="bi bi-map-fill"></i></div>
+                        <div class="stat-card-info">
+                            <div class="stat-card-val" id="p-stat-worlds">0</div>
+                            <div class="stat-card-label">Worlds Active</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-6">
-          <div class="stat-card">
-            <div class="stat-card-icon sc-green"><i class="bi bi-check2-all"></i></div>
-            <div class="stat-card-info">
-              <div class="stat-card-val" id="p-stat-quests">0</div>
-              <div class="stat-card-label">Quests Done</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-6">
-          <div class="stat-card">
-            <div class="stat-card-icon sc-orange"><i class="bi bi-fire"></i></div>
-            <div class="stat-card-info">
-              <div class="stat-card-val" id="p-stat-streak">0</div>
-              <div class="stat-card-label">Day Streak</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-6">
-          <div class="stat-card">
-            <div class="stat-card-icon sc-blue"><i class="bi bi-map-fill"></i></div>
-            <div class="stat-card-info">
-              <div class="stat-card-val" id="p-stat-worlds">0</div>
-              <div class="stat-card-label">Worlds Active</div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- WORLD PROGRESS -->
-      <div class="section-header mb-3">
-        <h3 class="dash-section-title">🗺️ World Progress</h3>
-      </div>
-      <div class="row g-3 mb-4">
-        <div class="col-md-4">
-          <div class="world-progress-card">
-            <div class="wpc-header"><span>🌐</span> HTML Quest</div>
-            <div class="wpc-bar-wrap">
-              <div class="dwc-progress-bar">
-                <div class="dwc-fill dwc-fill-orange" id="p-html-bar" style="width:0%"></div>
-              </div>
-              <span id="p-html-pct">0%</span>
+            <!-- WORLD PROGRESS -->
+            <div class="section-header mb-3">
+                <h3 class="dash-section-title">🗺️ World Progress</h3>
             </div>
-            <div class="wpc-stat"><span id="p-html-done">0</span>/10 quests &nbsp;·&nbsp; <span id="p-html-xp">0</span> XP</div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="world-progress-card">
-            <div class="wpc-header"><span>🎨</span> CSS Quest</div>
-            <div class="wpc-bar-wrap">
-              <div class="dwc-progress-bar">
-                <div class="dwc-fill dwc-fill-purple" id="p-css-bar" style="width:0%"></div>
-              </div>
-              <span id="p-css-pct">0%</span>
+            <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                    <div class="world-progress-card">
+                        <div class="wpc-header"><span>🌐</span> HTML Quest</div>
+                        <div class="wpc-bar-wrap">
+                            <div class="dwc-progress-bar">
+                                <div class="dwc-fill dwc-fill-orange" id="p-html-bar" style="width:0%"></div>
+                            </div>
+                            <span id="p-html-pct">0%</span>
+                        </div>
+                        <div class="wpc-stat"><span id="p-html-done">0</span>/10 quests &nbsp;·&nbsp; <span id="p-html-xp">0</span> XP</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="world-progress-card">
+                        <div class="wpc-header"><span>🎨</span> CSS Quest</div>
+                        <div class="wpc-bar-wrap">
+                            <div class="dwc-progress-bar">
+                                <div class="dwc-fill dwc-fill-purple" id="p-css-bar" style="width:0%"></div>
+                            </div>
+                            <span id="p-css-pct">0%</span>
+                        </div>
+                        <div class="wpc-stat"><span id="p-css-done">0</span>/10 quests &nbsp;·&nbsp; <span id="p-css-xp">0</span> XP</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="world-progress-card">
+                        <div class="wpc-header"><span>⚡</span> JS Quest</div>
+                        <div class="wpc-bar-wrap">
+                            <div class="dwc-progress-bar">
+                                <div class="dwc-fill dwc-fill-yellow" id="p-js-bar" style="width:0%"></div>
+                            </div>
+                            <span id="p-js-pct">0%</span>
+                        </div>
+                        <div class="wpc-stat"><span id="p-js-done">0</span>/10 quests &nbsp;·&nbsp; <span id="p-js-xp">0</span> XP</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="world-progress-card">
+                        <div class="wpc-header"><span>💻</span> Operating Systems</div>
+                        <div class="wpc-bar-wrap">
+                            <div class="dwc-progress-bar">
+                                <div class="dwc-fill dwc-fill-orange" id="p-os-bar" style="width:0%"></div>
+                            </div>
+                            <span id="p-os-pct">0%</span>
+                        </div>
+                        <div class="wpc-stat"><span id="p-os-done">0</span>/10 quests &nbsp;·&nbsp; <span id="p-os-xp">0</span> XP</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="world-progress-card">
+                        <div class="wpc-header"><span>🧮</span> Algorithms</div>
+                        <div class="wpc-bar-wrap">
+                            <div class="dwc-progress-bar">
+                                <div class="dwc-fill dwc-fill-purple" id="p-algo-bar" style="width:0%"></div>
+                            </div>
+                            <span id="p-algo-pct">0%</span>
+                        </div>
+                        <div class="wpc-stat"><span id="p-algo-done">0</span>/10 quests &nbsp;·&nbsp; <span id="p-algo-xp">0</span> XP</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="world-progress-card">
+                        <div class="wpc-header"><span>🧠</span> Critical Thinking</div>
+                        <div class="wpc-bar-wrap">
+                            <div class="dwc-progress-bar">
+                                <div class="dwc-fill dwc-fill-yellow" id="p-ct-bar" style="width:0%"></div>
+                            </div>
+                            <span id="p-ct-pct">0%</span>
+                        </div>
+                        <div class="wpc-stat"><span id="p-ct-done">0</span>/10 quests &nbsp;·&nbsp; <span id="p-ct-xp">0</span> XP</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="world-progress-card">
+                        <div class="wpc-header"><span>📊</span> Stats &amp; DS</div>
+                        <div class="wpc-bar-wrap">
+                            <div class="dwc-progress-bar">
+                                <div class="dwc-fill dwc-fill-orange" id="p-stats-bar" style="width:0%"></div>
+                            </div>
+                            <span id="p-stats-pct">0%</span>
+                        </div>
+                        <div class="wpc-stat"><span id="p-stats-done">0</span>/10 quests &nbsp;·&nbsp; <span id="p-stats-xp">0</span> XP</div>
+                    </div>
+                </div>
             </div>
-            <div class="wpc-stat"><span id="p-css-done">0</span>/10 quests &nbsp;·&nbsp; <span id="p-css-xp">0</span> XP</div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="world-progress-card">
-            <div class="wpc-header"><span>⚡</span> JS Quest</div>
-            <div class="wpc-bar-wrap">
-              <div class="dwc-progress-bar">
-                <div class="dwc-fill dwc-fill-yellow" id="p-js-bar" style="width:0%"></div>
-              </div>
-              <span id="p-js-pct">0%</span>
-            </div>
-            <div class="wpc-stat"><span id="p-js-done">0</span>/10 quests &nbsp;·&nbsp; <span id="p-js-xp">0</span> XP</div>
-          </div>
-        </div>
-      </div>
 
-      <!-- ACHIEVEMENTS -->
-      <div class="section-header mb-3">
-        <h3 class="dash-section-title">🏆 Achievements</h3>
-      </div>
-      <div class="achievements-grid" id="achievementsGrid"></div>
+            <!-- ACHIEVEMENTS -->
+            <div class="section-header mb-3">
+                <h3 class="dash-section-title">🏆 Achievements</h3>
+            </div>
+            <div class="achievements-grid" id="achievementsGrid"></div>
 
-      <!-- RESET -->
-      <div class="text-center mt-5 pb-4">
-        <button class="btn dq-btn-ghost btn-sm" onclick="resetProgress()">
+            <!-- RESET -->
+            <div class="text-center mt-5 pb-4">
+                <button class="btn dq-btn-ghost btn-sm" onclick="resetProgress()">
           <i class="bi bi-arrow-counterclockwise me-1"></i>Reset Progress (Dev Mode)
         </button>
-      </div>
+            </div>
 
-    </div>
-  </main>
+        </div>
+    </main>
 
-  <!-- TOAST -->
-  <div class="dq-toast" id="dqToast"></div>
+    <!-- TOAST -->
+    <div class="dq-toast" id="dqToast"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/js/api.js"></script>
-  <script src="/js/xpSystem.js"></script>
-  <script src="/js/navigation.js"></script>
-  <script src="/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/xpSystem.js"></script>
+    <script src="/js/navigation.js"></script>
+    <script src="/js/app.js"></script>
 </body>
+
 </html>
