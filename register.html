@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevQuest — Register</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .auth-wrap { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:2rem 1rem; }
+    .auth-card { background:var(--bg-card,#12122a); border:1px solid rgba(139,92,246,.3); border-radius:16px; padding:2.5rem; width:100%; max-width:420px; box-shadow:0 0 40px rgba(139,92,246,.15); }
+    .auth-logo { font-family:'Press Start 2P',monospace; font-size:.9rem; color:#a78bfa; margin-bottom:1.8rem; display:block; text-align:center; }
+    .auth-title { font-family:'Rajdhani',sans-serif; font-size:1.6rem; font-weight:700; color:#fff; text-align:center; margin-bottom:.5rem; }
+    .auth-sub   { text-align:center; color:#9ca3af; font-size:.9rem; margin-bottom:2rem; }
+    .auth-label { color:#a78bfa; font-size:.8rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; margin-bottom:.4rem; display:block; }
+    .auth-input { background:rgba(255,255,255,.05); border:1px solid rgba(139,92,246,.3); color:#fff; border-radius:8px; padding:.75rem 1rem; width:100%; font-family:'Fira Code',monospace; font-size:.9rem; transition:border-color .2s; margin-bottom:1.2rem; }
+    .auth-input:focus { outline:none; border-color:#a78bfa; background:rgba(167,139,250,.08); }
+    .auth-input::placeholder { color:#4b5563; }
+    .auth-error { background:rgba(239,68,68,.15); border:1px solid rgba(239,68,68,.4); color:#fca5a5; border-radius:8px; padding:.75rem 1rem; font-size:.85rem; margin-bottom:1rem; display:none; }
+    .auth-hint  { color:#6b7280; font-size:.78rem; margin-top:-.8rem; margin-bottom:1.2rem; }
+    .auth-footer { text-align:center; margin-top:1.5rem; color:#6b7280; font-size:.85rem; }
+    .auth-footer a { color:#a78bfa; text-decoration:none; }
+    .auth-footer a:hover { text-decoration:underline; }
+  </style>
+</head>
+<body class="landing-body">
+  <div class="stars"></div>
+  <div class="stars2"></div>
+
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <a href="/index.html" class="auth-logo">⚔️ DevQuest</a>
+      <h1 class="auth-title">Create Account</h1>
+      <p class="auth-sub">Start your coding adventure today</p>
+
+      <div class="auth-error" id="authError"></div>
+
+      <label class="auth-label">Username</label>
+      <input type="text" id="username" class="auth-input" placeholder="HeroCoderX" autocomplete="username" />
+      <p class="auth-hint">3–20 characters, no spaces</p>
+
+      <label class="auth-label">Email</label>
+      <input type="email" id="email" class="auth-input" placeholder="hero@quest.dev" autocomplete="email" />
+
+      <label class="auth-label">Password</label>
+      <input type="password" id="password" class="auth-input" placeholder="Min 6 characters" autocomplete="new-password" />
+
+      <button class="btn dq-btn-primary w-100" id="registerBtn" onclick="handleRegister()">
+        <i class="bi bi-rocket-takeoff-fill me-2"></i>Create Account
+      </button>
+
+      <div class="auth-footer">
+        Already have an account? <a href="/login.html">Log in</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/api.js"></script>
+  <script>
+    if (API.isLoggedIn()) window.location.href = '/dashboard.html';
+
+    async function handleRegister() {
+      const username = document.getElementById('username').value.trim();
+      const email    = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const errEl    = document.getElementById('authError');
+      const btn      = document.getElementById('registerBtn');
+
+      errEl.style.display = 'none';
+
+      if (!username || !email || !password) { errEl.textContent = 'Please fill in all fields.'; errEl.style.display = 'block'; return; }
+      if (username.length < 3)              { errEl.textContent = 'Username must be at least 3 characters.'; errEl.style.display = 'block'; return; }
+      if (!/^\S+@\S+\.\S+$/.test(email))   { errEl.textContent = 'Please enter a valid email address.'; errEl.style.display = 'block'; return; }
+      if (password.length < 6)             { errEl.textContent = 'Password must be at least 6 characters.'; errEl.style.display = 'block'; return; }
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Creating account...';
+
+      try {
+        await API.register(username, email, password);
+        window.location.href = '/dashboard.html';
+      } catch (err) {
+        errEl.textContent = err.message || 'Registration failed. Please try again.';
+        errEl.style.display = 'block';
+        btn.disabled = false;
+        btn.innerHTML = '<i class="bi bi-rocket-takeoff-fill me-2"></i>Create Account';
+      }
+    }
+
+    document.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleRegister(); });
+  </script>
+</body>
+</html>
