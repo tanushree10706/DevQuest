@@ -7,7 +7,7 @@
 
 ## 📖 About
 
-DevQuest is a gamified learning platform that turns web development education into an RPG adventure. Users create a hero account, explore subject "Worlds", complete learning quests, and earn XP to level up — all tracked with streaks, achievements, and a live progress dashboard.
+DevQuest is a gamified learning platform that turns web development and education into an RPG adventure. Users create a hero account, explore subject "Worlds", complete learning quests, and earn XP to level up — all tracked with streaks, achievements, and a live progress dashboard.
 
 ---
 
@@ -109,8 +109,6 @@ DevQuest/
    http://localhost:5000
    ```
 
----
-
 ## 🔌 API Endpoints
 
 | Method | Endpoint | Description | Auth |
@@ -124,7 +122,6 @@ DevQuest/
 | DELETE | `/api/me/reset` | Reset all progress | ✅ |
 | GET | `/api/health` | Health check | ❌ |
 
----
 
 ## 🌍 Worlds & Quests
 
@@ -138,7 +135,6 @@ DevQuest/
 | 🧠 Critical Thinking | Logic, Problem Decomposition, Debugging Strategies |
 | 📊 Stats & DS | Data Structures, Probability, Descriptive Stats |
 
----
 
 ## 🏆 Achievements
 
@@ -154,13 +150,5 @@ DevQuest/
 | 🧙 Web Wizard | Reach Level 10 |
 | 🌟 Century Club | Earn 100 XP |
 | 🚀 World Explorer | Complete quests in 3+ worlds |
-
----
-
-## 📜 License
-
-ISC
-
----
 
 > Built with ❤️ for devs who dare to quest.
